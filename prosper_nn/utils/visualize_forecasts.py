@@ -247,7 +247,8 @@ def heatmap_forecasts(
     xlabel: str = "Forecast Horizon",
     ylabel: str = "Values",
     title: str = "Heatmap Ensemble Forecast",
-) -> None:
+    figsize: tuple = None,
+) -> plt.figure:
     """
     The function first interpolates values between the timesteps of the forecasts.
     Then for each pixel a heat is calculated with a gauss function and the
@@ -304,7 +305,7 @@ def heatmap_forecasts(
         "rotation": 0,
     }
 
-    visualization.plot_heatmap(
+    return visualization.plot_heatmap(
         heatmap_matrix=heatmap_matrix,
         save_at=save_at,
         xlabel=xlabel,
@@ -313,5 +314,5 @@ def heatmap_forecasts(
         yticks=yticks,
         xticks=xticks,
         grid={"linestyle": "--", "alpha": 0.5},
-        figsize=(10, 5),
+        figsize=figsize,
     )

@@ -39,7 +39,7 @@ def plot_heatmap(
     save_at: Optional[str] = None,
     center: Optional[float] = None,
     cbar_kws: dict = {},
-    grid: dict = {"b": False},
+    grid: dict = {"visible": False},
     vmin: Optional[float] = None,
     vmax: Optional[float] = None,
     annot: Optional[np.array] = None,
@@ -118,6 +118,6 @@ def plot_heatmap(
     plt.yticks(**yticks),
     plt.title(title)
     plt.grid(**grid)
-    plt.show()
     if save_at:
         fig.figure.savefig(save_at + ".png")
+    return fig
